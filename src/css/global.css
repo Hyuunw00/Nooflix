@@ -1,0 +1,27 @@
+body {
+  background-color: #000000;
+  color: #ffffff;
+  max-width: 600px;
+  margin: auto;
+  height: 100vh;
+}
+body::after {
+  content: ""; /* ::after에 내용이 필요함 */
+  position: fixed; /* fixed 대신 absolute로 위치 조정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/ogimage.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+ul,
+li,
+a,
+button {
+  cursor: pointer;
+}

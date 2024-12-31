@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .list-hover {
+    @apply top-10   opacity-0  max-h-0  group-hover:block bg-zinc-800  z-10 transition-all duration-500 ease-in-out group-hover:max-h-[800px] group-hover:opacity-100;
+  }
+  .listItem-hover {
+    @apply w-48 h-16 leading-[2rem] px-2 py-4  hover:bg-red-800 transition-all duration-300;
+  }
+}
