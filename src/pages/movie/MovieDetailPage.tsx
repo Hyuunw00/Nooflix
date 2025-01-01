@@ -49,8 +49,8 @@ export default function MovieDetailPage() {
         const creditResponse = await axiosInstance.get(
           `/movie/${dataDetails.id}/credits?language=ko`
         );
-        setCasts(creditResponse.data.cast.slice(0, 10));
-        setCrews(creditResponse.data.crew.slice(0, 10));
+        setCasts(creditResponse.data.cast);
+        setCrews(creditResponse.data.crew);
         setLoading(false);
       } catch (error) {
         console.error(error);

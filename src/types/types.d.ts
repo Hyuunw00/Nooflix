@@ -38,3 +38,17 @@ interface DataDetailsProps {
   vote_count: number;
   homepage: string;
 }
+
+interface CreditProps {
+  title: string;
+  name: string;
+  backdrop_path: string;
+  credit_id: number;
+  profile_path: string;
+  poster_path: string;
+  character: string;
+  original_name: string;
+  original_title: string;
+  department: string;
+  id: number;
+}

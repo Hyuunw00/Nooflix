@@ -5,6 +5,7 @@ import HomePage from "./pages/home/HomePage";
 import DataDetailsPage from "./pages/details/DataDetailsPage";
 import MoviePage from "./pages/movie/MoviePage";
 import MovieDetailPage from "./pages/movie/MovieDetailPage";
+import PersonDetailPage from "./components/PersonDetailPage";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
             path="/movie/list/:genreNum/:movieId"
             element={<MovieDetailPage />}
           />
+          <Route path="/person/:personId" element={<PersonDetailPage />} />
         </Route>
       </Routes>
     </>

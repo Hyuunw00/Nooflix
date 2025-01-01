@@ -20,6 +20,7 @@ export default function MoviePage() {
   const [genres, setGenres] = useState<{ id: number; name: string }[]>([]);
   const [activeGenre, setActiveGrenre] = useState<number>(Number(genreNum));
 
+  // 무한스크롤 기능을 위한  react-intersection-observer 라이브러리
   const { ref, inView } = useInView({
     triggerOnce: false, // 요소가 다시 보일 때마다 호출되도록 설정
     threshold: 0.5, // 요소가 50% 이상 보일 때 트리거되도록 설정

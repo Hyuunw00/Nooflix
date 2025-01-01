@@ -7,17 +7,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { IMAGE_BASE_URL } from "../constants/urls";
+import { useNavigate } from "react-router-dom";
 
-interface CreditProps {
-  title: string;
-  name: string;
-  backdrop_path: string;
-  credit_id: number;
-  profile_path: string;
-  character: string;
-  original_name: string;
-  department: string;
-}
 export default function DataCredits({
   datas,
   title,
@@ -27,6 +18,8 @@ export default function DataCredits({
   title: string;
   uniquekey: string;
 }) {
+  console.log(datas);
+  const navigate = useNavigate();
   return (
     <div className="mt-4">
       <div className="flex justify-between items-center p-4 text-[14px]">
@@ -59,35 +52,32 @@ export default function DataCredits({
           nextEl: `.swiper-button-next-${uniquekey}`,
         }}
       >
-        <ul>
-          {datas.map((data, index) => {
-            return (
-              <li key={`${uniquekey}-${index}`}>
-                <SwiperSlide
-                  className="p-3 flex flex-col gap-2"
-                  key={`${data.credit_id}`}
-                >
-                  <div className="relative rounded-md overflow-hidden">
-                    <img
-                      className="w-full h-[144px] object-cover "
-                      src={`${
-                        data.profile_path
-                          ? `${IMAGE_BASE_URL}w92${data.profile_path}`
-                          : "/user.png"
-                      }`}
-                    />
-                  </div>
-                  <div>
-                    <p className="text-[12px]">
-                      {data.character || data.department}
-                    </p>
-                    <p className="text-[16px]">{data.original_name}</p>
-                  </div>
-                </SwiperSlide>
-              </li>
-            );
-          })}
-        </ul>
+        {datas.map((data, index) => {
+          return (
+            <SwiperSlide
+              onClick={() => navigate(`/person/${data.id}`)}
+              className="p-3 flex flex-col gap-2 cursor-pointer"
+              key={`${data.credit_id}-${index}`}
+            >
+              <div className="relative rounded-md overflow-hidden">
+                <img
+                  className="w-full h-[144px] object-cover "
+                  src={`${
+                    data.profile_path
+                      ? `${IMAGE_BASE_URL}w92${data.profile_path}`
+                      : "/user.png"
+                  }`}
+                />
+              </div>
+              <div>
+                <p className="text-[12px]">
+                  {data.character || data.department}
+                </p>
+                <p className="text-[16px]">{data.original_name}</p>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
