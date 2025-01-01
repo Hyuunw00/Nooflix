@@ -5,7 +5,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-import { API_KEY, BASE_URL } from "../pages/home/Home";
+import { API_KEY, BASE_URL } from "../pages/home/HomePage";
 
 export default function TrendingWeekMoviePage() {
   const [movies, setMovies] = useState<MovieProps[]>([]);

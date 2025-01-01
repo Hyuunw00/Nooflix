@@ -12,7 +12,7 @@ import {
 import { IMAGE_BASE_URL } from "../../constants/urls";
 import DataCredits from "../../components/DataCredits";
 
-export default function DataDetails() {
+export default function DataDetailsPage() {
   const location = useLocation();
 
   const locData = location.state;

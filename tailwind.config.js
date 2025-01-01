@@ -5,6 +5,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      boxShadow: {
+        custom: "0rem 0rem 6rem rgb(0 0 0 / 49%)",
+      },
       keyframes: {
         upDown: {
           "0%": { transform: "translateY(0px)" },

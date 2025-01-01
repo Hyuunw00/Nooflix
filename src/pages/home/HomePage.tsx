@@ -13,7 +13,7 @@ import DataByGenre from "../../components/DataByGenre";
 import WeeklyData from "../../components/WeeklyData";
 import { useNavigate } from "react-router-dom";
 
-export default function Home() {
+export default function HomePage() {
   const [trendingData, setTrendingData] = useState<DataProps[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();

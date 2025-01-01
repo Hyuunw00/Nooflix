@@ -12,10 +12,10 @@ export default function Footer() {
             <NavLink to="/search">SEARCH</NavLink>
           </li>
           <li>
-            <NavLink to="/movie">MOVIE</NavLink>
+            <NavLink to="/movie/list/0">MOVIE</NavLink>
           </li>
           <li>
-            <NavLink to="/tv">TV</NavLink>
+            <NavLink to="/tv/list">TV</NavLink>
           </li>
         </ul>
       </nav>
