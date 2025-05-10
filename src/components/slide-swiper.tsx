@@ -10,8 +10,6 @@ import Image from "next/image";
 import { TrendingAll } from "@/types/trending-all";
 
 export default function SlideSwiper({ results }: { results: TrendingAll[] }) {
-  console.log(results);
-
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -32,11 +30,11 @@ export default function SlideSwiper({ results }: { results: TrendingAll[] }) {
               <SwiperSlide key={data.id}>
                 <div className="relative">
                   <Image
-                    className="w-full h-[600px] object-cover"
+                    className="max-w-[576px] max-h-[550px] "
                     src={`${IMAGE_BASE_URL}original${data.poster_path}`}
                     width={576}
-                    height={600}
-                    alt={`일별 트랜드 데이터 : ${data.title}`}
+                    height={550}
+                    alt={`일별 트랜드 영화/tv : ${data.title}`}
                   />
                   <div className="absolute top-0 text-[20px] flex flex-col w-full p-2 text-[#fff]">
                     <span>{data.vote_average}</span>
