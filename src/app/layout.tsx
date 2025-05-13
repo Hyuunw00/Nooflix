@@ -1,7 +1,7 @@
 import "./globals.css";
 import Footer from "../components/footer";
 import Header from "../components/header";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function RootLayout({
   children,
@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="fixed inset-0 -z-10">
+        {/* <div className="fixed inset-0 -z-10">
           <Image
             src={"/ogimage.png"}
             alt={""}
@@ -19,10 +19,15 @@ export default function RootLayout({
             height={1080}
             className="w-screen h-screen object-cover"
           />
-        </div>
-        <section className="relative z-10 max-w-lg   min-h-screen mx-auto  bg-black text-white flex flex-col ">
+        </div> */}
+        <section
+          className="relative z-10 max-w-lg   min-h-screen mx-auto   flex flex-col
+          [box-shadow:0px_7px_29px_0px_rgba(100,100,111,0.2)]"
+        >
           <Header />
-          <main className="flex-1 ">{children}</main>
+          <main className="flex-1  pb-[100px] min-h-[calc(100vh-60px)]  ">
+            {children}
+          </main>
           <Footer />
         </section>
       </body>

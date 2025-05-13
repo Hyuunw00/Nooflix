@@ -30,10 +30,10 @@ export default function SlideSwiper({ results }: { results: TrendingAll[] }) {
               <SwiperSlide key={data.id}>
                 <div className="relative">
                   <Image
-                    className="max-w-[576px] max-h-[550px] "
+                    className="max-w-[512px] max-h-[530px] "
                     src={`${IMAGE_BASE_URL}original${data.poster_path}`}
-                    width={576}
-                    height={550}
+                    width={512}
+                    height={530}
                     alt={`일별 트랜드 영화/tv : ${data.title}`}
                   />
                   <div className="absolute top-0 text-[20px] flex flex-col w-full p-2 text-[#fff]">

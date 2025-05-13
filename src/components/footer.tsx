@@ -13,7 +13,7 @@ function Menu({ title, children }: { title: string; children: ReactNode }) {
 
 export default function Footer() {
   return (
-    <footer className="py-2 bg-[#1C1C1C] text-gray-300">
+    <footer className="py-2 bg-[#1C1C1C] text-gray-300 fixed z-20 bottom-0   max-w-lg w-full">
       <nav>
         <ul className="flex justify-around items-center ">
           <Link href={"/"}>
