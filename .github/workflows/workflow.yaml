@@ -2,19 +2,17 @@ name: CI/CD Workflow
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - dev
-    pull_request:
+  pull_request:
     branches:
       - main
       - dev
 
 jobs:
-  deploy:
-  # 설치 및 빌드/테스트/린트 작업을 하나의 job으로 처리
   build_and_test:
-    runs-on: ubuntu-latest  # 최신 리눅스 환경에서 실행
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -27,15 +25,15 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install  # yarn을 사용하여 종속성 설치
+        run: yarn install
 
       - name: Build the project
-        run: yarn build 
+        env:
+          NEXT_PUBLIC_TMDB_TOKEN: ${{ secrets.NEXT_PUBLIC_TMDB_TOKEN }}
+        run: yarn build
 
       - name: Run lint (ESLint)
-        run: yarn lint  # ESLint로 코드 검사 (작업을 lint로 실행한다고 가정)
+        run: yarn lint
 
       # - name: Run tests
       #   run: yarn test  # Jest를 사용한 테스트 실행
-
-   
