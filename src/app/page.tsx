@@ -1,56 +1,46 @@
 import SlideSwiper from "@/components/slide-swiper";
 import { fetchTMDB } from "@/lib/fetch";
 import Image from "next/image";
-import { MdSearch } from "react-icons/md";
-import { FaStar } from "react-icons/fa";
 import { Swiper } from "swiper/react";
 import Link from "next/link";
+import Header from "@/components/header";
+import SearchBtn from "@/components/search-button";
+import {  FaStar } from "react-icons/fa";
+import { ReactNode } from "react";
+import RankList from "@/components/home/rank-list";
+
+
+
+
+
 
 export default async function Home() {
-  const { results } = await fetchTMDB("/trending/all/week?language=ko-KR");
+  const { results } = await fetchTMDB("/trending/all/week");
 
   return (
-    <div>
+    <div className="relative z-10">
+      <Header/>
+
+      {/* 주간 트렌드 영화&시리즈 */}
       {<SlideSwiper results={results} />}
 
       {/* 검색 페이지 이동 */}
-      
-      <div className="mt-5 px-4 " onClick={}>
-        <div className="px-2 py-3 text-gray-300 bg-[var(--gray-100)] w-full flex items-center gap-1 rounded-[10px] cursor-pointer">
-          <MdSearch className="w-6 h-6" />
-          <span className="text-[var(--gray-400)]">'야당'이 궁금하신가요?</span>
-        </div>
-      </div>
+      <SearchBtn/>
+   
 
-      <div className="pt-5 px-3 ">
-        {/* 랭킹  */}
-        <div className=" flex justify-between items-center mb-5 ">
-          <h4 className="text-lg font-bold">실시간 랭킹</h4>
-          <div className="text-gray-400 text-sm">오후 11:47 기준</div>
+      {/* 랭킹  */}
+
+      <div>
+
+        <div className=" flex justify-between items-center mt-10 mb-5 px-3 ">
+          <h4 className="text-lg font-bold">일간 랭킹</h4>
+          <div className="text-[var(--gray-400)] text-sm">{new Date().toLocaleDateString("ko-KR")} 기준</div>
         </div>
 
-        {/* 탭 */}
-        <div>
-          <ul className="flex gap-2 items-center mb-10 ">
-            <li className="bg-[#4DCA9A] rounded-full p-2 text-white">
-              실시간 인기
-            </li>
-            <li className=" rounded-full p-2 border border-gray-200">
-              실시간 인기
-            </li>
-            <li className=" rounded-full p-2 border border-gray-200">
-              실시간 인기
-            </li>
+        {/* 랭킹 탭 */}
+        <RankList/>
 
-            <li className=" rounded-full p-2 border border-gray-200">
-              실시간 인기
-            </li>
-            <li className=" rounded-full p-2 border border-gray-200">
-              실시간 인기
-            </li>
-          </ul>
-
-          {/* 탭 내용 */}
+        {/* 탭 결과 */}
           <div>
             <ul className="flex flex-col gap-4">
               <li className="flex items-center  justify-between p-2">
@@ -96,7 +86,15 @@ export default async function Home() {
               </li>
             </ul>
           </div>
-        </div>
+      </div>
+       
+       
+
+     
+
+
+
+
 
         {/* 인기 트렌드 영화 */}
         <div className="mt-10">
@@ -318,8 +316,7 @@ export default async function Home() {
           </div>
 
 
-
-        </div>
+          
       </div>
     </div>
   );
