@@ -28,6 +28,8 @@ jobs:
         run: yarn install
 
       - name: Build the project
+        env:
+          NEXT_PUBLIC_TMDB_TOKEN: ${{ secrets.NEXT_PUBLIC_TMDB_TOKEN }}
         run: yarn build
 
       - name: Run lint (ESLint)
