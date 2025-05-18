@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary Colors */
+  --primary-050: #f4fffc;
+  --primary-100: #eafff7;
+  --primary-200: #d0ffed;
+  --primary-300: #a2f5d5;
+  --primary-400: #84eac3;
+  --primary-500: #53e3ac;
+  --primary-600: #4dca9a;
+  --primary-700: #32b986;
+  --primary-800: #24966b;
+  --primary-900: #136b4a;
+
+  /* Yellow */
+  --yellow-050: #fff7dc;
+  --yellow-100: #feedb4;
+  --yellow-200: #fee283;
+  --yellow-300: #fed850;
+  --yellow-400: #ffd324;
+  --yellow-500: #ffb700;
+  --yellow-600: #ffa400;
+  --yellow-700: #ff7300;
+
+  /* Red */
+  --red-100: #ffc8d1;
+  --red-200: #f89096;
+  --red-300: #f1626d;
+  --red-400: #fd3049;
+  --red-500: #ff002a;
+  --red-600: #f4002a;
+  --red-700: #d6001c;
+
+  /* Blue */
+  --blue-050: #e6f2ff;
+  --blue-100: #bbdcff;
+  --blue-200: #8fc7ff;
+  --blue-300: #60b0ff;
+  --blue-400: #3e9fff;
+  --blue-500: #1290fe;
+  --blue-600: #1b6fdb;
+  --blue-700: #1b5ec9;
+
+  /* Gray */
+  --gray-050: #f8f9fd;
+  --gray-100: #f1f3f7;
+  --gray-200: #e9ebec;
+  --gray-300: #c5c8ce;
+  --gray-400: #aeb4bf;
+  --gray-500: #89939f;
+  --gray-600: #646f7c;
+  --gray-700: #454b53;
+  --gray-800: #282b30;
+  --gray-900: #1b1c1f;
+
+  /* Basic Colors */
+  --white: #ffffff;
+  --black: #121212;
+
+  /* Dim */
+  --dim-basic: rgba(27, 28, 31, 0.5);
+  --dim-thick: rgba(27, 28, 31, 0.8);
+
+  /* Shadows */
+  --shadow-low: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 16px 0 rgba(0, 0, 0, 0.12);
+  --shadow-high: 0 8px 36px 0 rgba(0, 0, 0, 0.15);
+
+  /* Swiper */
+  --swiper-theme-color: #007aff;
+}
