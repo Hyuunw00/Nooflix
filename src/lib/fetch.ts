@@ -4,7 +4,7 @@ export async function fetchTMDB(
   endpoint: string,
   params: Record<string, string> = {}
 ) {
-  const defaultParams = {
+  const defaultParams: Record<string, string> = {
     language: "ko-KR",
     region: "KR",
     watch_region: "KR",
@@ -24,5 +24,6 @@ export async function fetchTMDB(
 
   if (!response.ok) throw new Error("Failed to fetch Data");
 
-  return await response.json();
+  const data = await response.json();
+  return data;
 }

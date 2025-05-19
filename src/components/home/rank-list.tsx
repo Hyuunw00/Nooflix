@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
-import RankItem from "./rank-item";
+import { ReactNode, useRef, useState } from "react";
 import {
   FaFire,
   FaCalendarAlt,
@@ -11,7 +10,13 @@ import {
   FaTrophy,
 } from "react-icons/fa";
 
-export default function RankList() {
+export default function RankList({
+  currentTab,
+  setCurrentTab,
+}: {
+  currentTab: number;
+  setCurrentTab: (index: number) => void;
+}) {
   const listRef = useRef<HTMLUListElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -33,6 +38,20 @@ export default function RankList() {
     setIsDragging(false);
   };
 
+  interface Items {
+    label: string;
+    icon: ReactNode;
+  }
+
+  const items: Items[] = [
+    { label: "종합", icon: <FaTrophy className="w-6 h-6 fill-black" /> },
+    { label: "인기", icon: <FaFire className="w-6 h-6 fill-black" /> },
+    { label: "개봉", icon: <FaCalendarAlt className="w-6 h-6 fill-black" /> },
+    { label: "수익", icon: <FaDollarSign className="w-6 h-6 fill-black" /> },
+    { label: "평점", icon: <FaStar className="w-6 h-6 fill-black" /> },
+    { label: "투표", icon: <FaVoteYea className="w-6 h-6 fill-black" /> },
+  ];
+
   return (
     <ul
       ref={listRef}
@@ -42,33 +61,20 @@ export default function RankList() {
       onMouseLeave={handleMouseUp}
       className={`flex items-center gap-4 mb-10 overflow-x-auto scollbar-hidden px-4 `}
     >
-      <RankItem standard="종합">
-        <FaTrophy className="w-6 h-6 fill-black" />
-      </RankItem>
-
-      <RankItem standard="인기">
-        <FaFire className="w-6 h-6 fill-black" />
-      </RankItem>
-
-      <RankItem standard="개봉">
-        <FaCalendarAlt className="w-6 h-6 fill-black" />
-      </RankItem>
-
-      <RankItem standard="수익">
-        <FaDollarSign className="w-6 h-6 fill-black" />
-      </RankItem>
-
-      <RankItem standard="평점">
-        <FaStar className="w-6 h-6 fill-black" />
-      </RankItem>
-
-      <RankItem standard="투표">
-        <FaVoteYea className="w-6 h-6 fill-black" />
-      </RankItem>
-
-      <RankItem standard="종합">
-        <FaTrophy className="w-6 h-6 fill-black" />
-      </RankItem>
+      {items.map((item, index) => (
+        <li
+          onClick={() => setCurrentTab(index)}
+          key={index}
+          className={`rounded-full px-3 py-2  flex items-center gap-2 shrink-0
+      select-none cursor-pointer  border border-gray-100 selected
+      ${currentTab == index ? "selected" : "not-selected"}`}
+        >
+          {item.icon}
+          <span className="font-bold text-[14px] text-[vat(--gray-600)]">
+            {item.label}
+          </span>
+        </li>
+      ))}
     </ul>
   );
 }

@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/header";
 import SearchBtn from "@/components/search-button";
-import { FaStar, FaChevronRight } from "react-icons/fa";
-import RankList from "@/components/home/rank-list";
+import { FaChevronRight } from "react-icons/fa";
+import Rank from "@/components/home/rank";
 
 export default async function Home() {
   const { results } = await fetchTMDB("/trending/all/week");
@@ -21,60 +21,7 @@ export default async function Home() {
       <SearchBtn />
 
       {/* 랭킹  */}
-      <div>
-        <div className=" flex justify-between items-center mt-10 mb-5 px-3 ">
-          <h4 className="text-lg font-bold">일간 랭킹</h4>
-          <div className="text-[var(--gray-400)] text-sm">
-            {new Date().toLocaleDateString("ko-KR")} 기준
-          </div>
-        </div>
-
-        {/* 랭킹 탭 */}
-        <RankList />
-
-        {/* 탭 결과 */}
-        <div>
-          <ul className="flex flex-col gap-4">
-            <li className="flex items-center  justify-between p-2">
-              <div className="flex items-start gap-5">
-                <div className="font-bold">1</div>
-                <div className="flex items-center gap-1">
-                  <Image
-                    src={"/ogimage.png"}
-                    width={120}
-                    height={120}
-                    alt="예비 이미지"
-                  />
-                  <span className="text-sm">언젠가는 슬기로울 전공의생활</span>
-                </div>
-              </div>
-              <div className="flex gap-1 items-center">
-                <FaStar className="w-4 h-4" />
-                <span className="text-sm">3.2</span>
-              </div>
-            </li>
-
-            <li className="flex items-center  justify-between p-2">
-              <div className="flex items-start gap-5">
-                <div className="font-bold">1</div>
-                <div className="flex items-center gap-1">
-                  <Image
-                    src={"/ogimage.png"}
-                    width={120}
-                    height={120}
-                    alt="예비 이미지"
-                  />
-                  <span className="text-sm">언젠가는 슬기로울 전공의생활</span>
-                </div>
-              </div>
-              <div className="flex gap-1 items-center">
-                <FaStar className="w-4 h-4" />
-                <span className="text-sm">3.2</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <Rank />
 
       {/* 인기 트렌드 영화 */}
       <div className="mt-10">
