@@ -1,11 +1,13 @@
-import SlideSwiper from "@/components/slide-swiper";
 import { fetchTMDB } from "@/lib/fetch";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/header";
-import SearchBtn from "@/components/search-button";
 import { FaChevronRight } from "react-icons/fa";
 import Rank from "@/components/home/rank";
+import SearchBtn from "@/components/home/search-button";
+import BannerSwiper from "@/components/home/banner-swiper";
+import DailyTrend from "@/components/home/daily-trend";
+import RecentlyOpen from "@/components/home/recently-open";
 
 export default async function Home() {
   const { results } = await fetchTMDB("/trending/all/week");
@@ -15,7 +17,7 @@ export default async function Home() {
       <Header />
 
       {/* 주간 트렌드 영화&시리즈 */}
-      {<SlideSwiper results={results} />}
+      {<BannerSwiper results={results} />}
 
       {/* 검색 페이지 이동 */}
       <SearchBtn />
@@ -24,155 +26,13 @@ export default async function Home() {
       <Rank />
 
       {/* 인기 트렌드 영화 */}
-      <div className="mt-10">
-        <div className="mb-5">
-          <h4 className="text-lg font-bold">인기 트렌드 영화</h4>
-          <span className="text-sm text-[var(--gray-500)]">
-            최근 24시간 동안 가장 많이 언급된 영화
-          </span>
-        </div>
-
-        {/* 스와이퍼  */}
-        <div>
-          {/* <Swiper></Swiper> */}
-          <div>
-            <ul className="flex  items-center gap-2  ">
-              <li className="flex flex-col gap-1">
-                <Image
-                  src={"/ogimage.png"}
-                  width={120}
-                  height={240}
-                  alt="예비 이미지"
-                  className="rounded-xl"
-                />
-                <div className="flex flex-col text-[13px] text-gray-500">
-                  <span className="text-[var(--gray-700)]">서브스턴스</span>
-                  <p className="test-[var(--gray-600)]">
-                    영화 - 정서극/공포(호러)
-                  </p>
-                </div>
-              </li>
-
-              <li className="flex flex-col gap-1">
-                <Image
-                  src={"/ogimage.png"}
-                  width={120}
-                  height={240}
-                  alt="예비 이미지"
-                  className="rounded-xl"
-                />
-                <div className="flex flex-col text-[13px] text-gray-500">
-                  <span className="text-[var(--gray-700)]">서브스턴스</span>
-                  <p className="test-[var(--gray-600)]">
-                    영화 - 정서극/공포(호러)
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <DailyTrend standard="movie" />
 
       {/* 인기 트렌드 시리즈 */}
-      <div className="mt-10">
-        <div className="mb-5">
-          <h4 className="text-lg font-bold">인기 트렌드 시리즈</h4>
-          <span className="text-sm text-[var(--gray-500)]">
-            최근 24시간 동안 가장 많이 언급된 시리즈
-          </span>
-        </div>
-
-        {/* 스와이퍼  */}
-        <div>
-          {/* <Swiper></Swiper> */}
-          <div>
-            <ul className="flex  items-center gap-2  ">
-              <li className="flex flex-col gap-1">
-                <Image
-                  src={"/ogimage.png"}
-                  width={120}
-                  height={240}
-                  alt="예비 이미지"
-                  className="rounded-xl"
-                />
-                <div className="flex flex-col text-[13px] text-gray-500">
-                  <span className="text-[var(--gray-700)]">서브스턴스</span>
-                  <p className="test-[var(--gray-600)]">
-                    영화 - 정서극/공포(호러)
-                  </p>
-                </div>
-              </li>
-
-              <li className="flex flex-col gap-1">
-                <Image
-                  src={"/ogimage.png"}
-                  width={120}
-                  height={240}
-                  alt="예비 이미지"
-                  className="rounded-xl"
-                />
-                <div className="flex flex-col text-[13px] text-gray-500">
-                  <span className="text-[var(--gray-700)]">서브스턴스</span>
-                  <p className="test-[var(--gray-600)]">
-                    영화 - 정서극/공포(호러)
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <DailyTrend standard="tv" />
 
       {/* 개봉 예정작 / 신작 */}
-
-      <div className="mt-10">
-        <div className="mb-5">
-          <h4 className="text-lg font-bold">개봉 예정작 / 신작 </h4>
-          <span className="text-sm text-[var(--gray-500)]">
-            최근 상영/방영한 따끈따끈한 신작!
-          </span>
-        </div>
-
-        <div>
-          <ul className="flex gap-2">
-            <li className="flex flex-col rounded-[6px] overflow-hidden">
-              <Image
-                src={"/ogimage.png"}
-                width={230}
-                height={140}
-                alt="예비 이미지"
-                className="rounded-xl"
-              />
-              <div className="flex flex-col gap-2 pt-4 px-[12px] pb-[20px] bg-[var(--gray-050)]">
-                <h6 className="font-bold text-[14px] text-[var(--gray-800)]">
-                  영화제목
-                </h6>
-                <p className="text-[13px] text-[var(--gray-600)] ">
-                  사람들이 많이 본 인기작 모아보기
-                </p>
-              </div>
-            </li>
-
-            <li className="flex flex-col gap-2">
-              <Image
-                src={"/ogimage.png"}
-                width={230}
-                height={140}
-                alt="예비 이미지"
-                className="rounded-xl"
-              />
-              <div className="flex flex-col gap-2 pt-4 px-[12px] pb-[20px] bg-[var(--gray-050)]">
-                <h6 className="font-bold text-[14px] text-[var(--gray-800)]">
-                  영화제목
-                </h6>
-                <p className="text-[13px] text-[var(--gray-600)] ">
-                  사람들이 많이 본 인기작 모아보기
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <RecentlyOpen />
 
       {/* OTT별 필터링(넷플릭스.디즈니 플러스 등등) */}
       <div className="mt-10">
@@ -235,14 +95,14 @@ export default async function Home() {
       </div>
 
       {/* 숨겨진 보석 */}
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <div className="mb-5">
           <h4 className="text-lg font-bold">숨겨진 보석💎</h4>
           <span className="text-sm text-[var(--gray-500)]">
             과소평가된 고전 영화/시리즈들
           </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
