@@ -1,4 +1,4 @@
-export type TrendingAll = {
+export interface TrendingAll {
   backdrop_path: string;
   id: number;
   title: string;
@@ -15,4 +15,9 @@ export type TrendingAll = {
   video: boolean;
   vote_average: number;
   vote_count: number;
-};
+}
+
+export interface Genre {
+  id: number;
+  name: string;
+}

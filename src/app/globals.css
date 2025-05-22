@@ -13,3 +13,16 @@ body {
 .scollbar-hidden::-webkit-scrollbar {
   display: none;
 }
+
+/* 랭킹 */
+
+.selected {
+  background-color: var(--primary-600);
+  color: white;
+  border: 1px solid var(--primary-600);
+}
+.not-selected {
+  background-color: white;
+  color: black;
+  border: 1px solid var(--gray-100);
+}
