@@ -2,7 +2,10 @@ import { OTT_PROVIDERS } from "@/constants/ott";
 import { fetchTMDB } from "./fetch";
 
 export default async function fetchOtt(currentTab: number, standard: string) {
-  const movieTabData = [
+  const movieTabData: {
+    endPoint: string;
+    params?: Record<string, string | number>;
+  }[] = [
     {
       endPoint: `/discover/${standard}`,
       params: {
@@ -12,49 +15,49 @@ export default async function fetchOtt(currentTab: number, standard: string) {
     {
       endPoint: `/discover/${standard}`,
       params: {
-        with_watch_providers: `${OTT_PROVIDERS.Netflix}`,
+        with_watch_providers: OTT_PROVIDERS.Netflix,
         sort_by: "popularity.desc",
       },
     },
     {
       endPoint: `/discover/${standard}`,
       params: {
-        with_watch_providers: `${OTT_PROVIDERS.DisneyPlus}`,
+        with_watch_providers: OTT_PROVIDERS.DisneyPlus,
         sort_by: "popularity.desc",
       },
     },
     {
       endPoint: `/discover/${standard}`,
       params: {
-        with_watch_providers: `${OTT_PROVIDERS.Watcha}`,
+        with_watch_providers: OTT_PROVIDERS.Watcha,
         sort_by: "popularity.desc",
       },
     },
     {
       endPoint: `/discover/${standard}`,
       params: {
-        with_watch_providers: `${OTT_PROVIDERS.AppleTV}`,
+        with_watch_providers: OTT_PROVIDERS.AppleTV,
         sort_by: "popularity.desc",
       },
     },
     {
       endPoint: `/discover/${standard}`,
       params: {
-        with_watch_providers: `${OTT_PROVIDERS.Wavve}`,
+        with_watch_providers: OTT_PROVIDERS.Wavve,
         sort_by: "popularity.desc",
       },
     },
     {
       endPoint: `/discover/${standard}`,
       params: {
-        with_watch_providers: `${OTT_PROVIDERS.Amazon}`,
+        with_watch_providers: OTT_PROVIDERS.Amazon,
         sort_by: "popularity.desc",
       },
     },
   ];
 
-  return fetchTMDB(
-    movieTabData[currentTab].endPoint,
-    movieTabData[currentTab].params
-  );
+  const { endPoint, params } = movieTabData[currentTab];
+
+  console.log(currentTab);
+  return fetchTMDB(endPoint, params);
 }

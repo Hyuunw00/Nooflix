@@ -2,7 +2,7 @@ import { API_BASE_URL, TMDB_TOKEN } from "@/constants/urls";
 
 export async function fetchTMDB(
   endpoint: string,
-  params: Record<string, string> = {}
+  params: Record<string, string | number> = {}
 ) {
   const defaultParams: Record<string, string> = {
     language: "ko-KR",
