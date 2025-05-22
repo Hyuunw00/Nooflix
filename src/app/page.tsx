@@ -4,8 +4,8 @@ import SearchBtn from "@/components/home/search-button";
 import BannerSwiper from "@/components/home/banner-swiper";
 import DailyTrend from "@/components/home/daily-trend";
 import RecentlyOpen from "@/components/home/recently-open";
-import OttProvide from "@/components/home/ott-provide";
 import OttRank from "@/components/home/ott-rank";
+import ThemeCollection from "@/components/home/theme-collection";
 
 export default async function Home() {
   const { results } = await fetchTMDB("/trending/all/week");
@@ -32,8 +32,8 @@ export default async function Home() {
       {/* 개봉 예정작 / 신작 */}
       <RecentlyOpen />
 
-      {/* OTT별 제공하는 콘텐츠 */}
-      <OttProvide />
+      {/* 작품 모음집*/}
+      <ThemeCollection />
     </div>
   );
 }

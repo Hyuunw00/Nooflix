@@ -49,7 +49,13 @@ export default function RankList({
       select-none cursor-pointer  border border-gray-100 selected
       ${currentTab == index ? "selected" : "not-selected"}`}
         >
-          <Image src={item.icon} width={24} height={24} alt="넷플릭스 로고" />
+          <Image
+            className="max-w-[24px] max-h-[24px]"
+            src={item.icon}
+            width={24}
+            height={24}
+            alt={item.label}
+          />
           <span className="font-bold text-[14px] text-[vat(--gray-600)]">
             {item.label}
           </span>

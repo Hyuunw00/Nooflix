@@ -49,6 +49,7 @@ export default function OttRank() {
                   width={32}
                   height={48}
                   alt={data.title || data.name}
+                  className="max-w-[32px] max-h-[48px]"
                 />
                 <span className="text-sm">{data.title || data.name}</span>
               </div>
