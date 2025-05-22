@@ -1,14 +1,8 @@
 "use client";
 
-import { ReactNode, useRef, useState } from "react";
-import {
-  FaFire,
-  FaCalendarAlt,
-  FaDollarSign,
-  FaStar,
-  FaVoteYea,
-  FaTrophy,
-} from "react-icons/fa";
+import { ottItems } from "@/constants/ott";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
 export default function RankList({
   currentTab,
@@ -38,20 +32,6 @@ export default function RankList({
     setIsDragging(false);
   };
 
-  interface Items {
-    label: string;
-    icon: ReactNode;
-  }
-
-  const items: Items[] = [
-    { label: "종합", icon: <FaTrophy className="w-6 h-6 fill-black" /> },
-    { label: "인기", icon: <FaFire className="w-6 h-6 fill-black" /> },
-    { label: "개봉", icon: <FaCalendarAlt className="w-6 h-6 fill-black" /> },
-    { label: "수익", icon: <FaDollarSign className="w-6 h-6 fill-black" /> },
-    { label: "평점", icon: <FaStar className="w-6 h-6 fill-black" /> },
-    { label: "투표", icon: <FaVoteYea className="w-6 h-6 fill-black" /> },
-  ];
-
   return (
     <ul
       ref={listRef}
@@ -61,7 +41,7 @@ export default function RankList({
       onMouseLeave={handleMouseUp}
       className={`flex items-center gap-4 mb-10 overflow-x-auto scollbar-hidden px-4 `}
     >
-      {items.map((item, index) => (
+      {ottItems.map((item, index) => (
         <li
           onClick={() => setCurrentTab(index)}
           key={index}
@@ -69,7 +49,7 @@ export default function RankList({
       select-none cursor-pointer  border border-gray-100 selected
       ${currentTab == index ? "selected" : "not-selected"}`}
         >
-          {item.icon}
+          <Image src={item.icon} width={24} height={24} alt="넷플릭스 로고" />
           <span className="font-bold text-[14px] text-[vat(--gray-600)]">
             {item.label}
           </span>

@@ -8,7 +8,7 @@ import { getRankData } from "@/lib/getRankData";
 import { TrendingAll } from "@/types/trending-all";
 import { IMAGE_BASE_URL } from "@/constants/urls";
 
-export default function Rank() {
+export default function OttRank() {
   const [currentTab, setCurrentTab] = useState(0);
   const [rankData, setRankData] = useState<TrendingAll[]>([]);
 
@@ -28,7 +28,7 @@ export default function Rank() {
   return (
     <section>
       <div className=" flex justify-between items-center mt-10 mb-5 px-3 ">
-        <h4 className="text-lg font-bold">일간 랭킹</h4>
+        <h4 className="text-lg font-bold">OTT 랭킹</h4>
         <div className="text-[var(--gray-400)] text-sm">
           {new Date().toLocaleDateString("ko-KR")} 기준
         </div>

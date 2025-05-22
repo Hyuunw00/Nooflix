@@ -1,10 +1,9 @@
-import fetchMovies from "./fetchMovies";
-import fetchSeries from "./fetchSeries";
+import fetchOtt from "./fetch-ott";
 
 export async function getRankData(currentTab: number) {
   const [movieData, tvData] = await Promise.all([
-    fetchMovies(currentTab),
-    fetchSeries(currentTab),
+    fetchOtt(currentTab, "movie"),
+    fetchOtt(currentTab, "tv"),
   ]);
 
   // 영화와 TV 데이터를 합쳐서 반환
